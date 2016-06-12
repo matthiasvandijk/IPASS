@@ -2,6 +2,19 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+
+<%
+	String email = "";
+	if (request.getCookies() != null) {
+		for (Cookie c : request.getCookies()) {
+			if (c.getName().equals("email")) {
+				email = c.getValue();
+				break;
+			}
+		}
+	}
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -39,7 +52,7 @@
 			<form class="form-horizontal" method="post"
 				action="${pageContext.request.contextPath}/LoginServlet.do">
 				<input type="text" class="form-control input-height"
-					placeholder="E-mail" name="login_email"> <input type="password"
+					placeholder="E-mail" name="login_email" value="<%= email %>"> <input type="password"
 					class="form-control space-input input-height"
 					placeholder="Wachtwoord" name="login_password"> <button
 					class="btn btn-signIn btn-main" type="submit">Aanmelden</button>

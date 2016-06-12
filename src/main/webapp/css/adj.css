@@ -186,6 +186,10 @@ fieldset[disabled] .btn-main.active {
   }
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 /* Begin Rooster */
 .dag {
        font-size: 19px;

@@ -15,6 +15,33 @@
 		<url-pattern>/LoginServlet.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>uitloggen</servlet-name>
+		<servlet-class>controller.UitlogServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>uitloggen</servlet-name>
+		<url-pattern>/uitloggen/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>slbDashboard</servlet-name>
+		<jsp-file>/slbdashboard.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>slbDashboard</servlet-name>
+		<url-pattern>/slb/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>slbUrenOpenstellen</servlet-name>
+		<jsp-file>/uren_openstellen.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>slbUrenOpenstellen</servlet-name>
+		<url-pattern>/slb/uren_openstellen/</url-pattern>
+	</servlet-mapping>
+	
 	<filter>
 	  <filter-name>SlbAuth-filter</filter-name>
 	  <filter-class>controller.SlbAuthFilter</filter-class>
