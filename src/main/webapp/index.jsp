@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -32,10 +36,14 @@
 		Test
 	</div>
 	<div class="login-content">
-
-		<input type="text" class="form-control input-height" placeholder="E-mail">
-		<input type="password" class="form-control space-input input-height" placeholder="Wachtwoord">
-		<a href="#" class="btn btn-signIn btn-main" role="button">Sign in</a>
+			<form class="form-horizontal" method="post"
+				action="${pageContext.request.contextPath}/LoginServlet.do">
+				<input type="text" class="form-control input-height"
+					placeholder="E-mail" name="login_email"> <input type="password"
+					class="form-control space-input input-height"
+					placeholder="Wachtwoord" name="login_password"> <button
+					class="btn btn-signIn btn-main" type="submit">Aanmelden</button>
+			</form>
 	</div>
 </div>
     <!-- Bootstrap core JavaScript

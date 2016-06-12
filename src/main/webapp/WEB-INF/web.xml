@@ -6,6 +6,31 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          metadata-complete="false">
 
-         
+	<servlet>
+		<servlet-name>Login Servlet</servlet-name>
+		<servlet-class>controller.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login Servlet</servlet-name>
+		<url-pattern>/LoginServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+	  <filter-name>SlbAuth-filter</filter-name>
+	  <filter-class>controller.SlbAuthFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	  <filter-name>SlbAuth-filter</filter-name>
+	  <url-pattern>/slb/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+	  <filter-name>StudentAuth-filter</filter-name>
+	  <filter-class>controller.StudentAuthFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	  <filter-name>StudentAuth-filter</filter-name>
+	  <url-pattern>/student/*</url-pattern>
+	</filter-mapping>
 </web-app>
 
