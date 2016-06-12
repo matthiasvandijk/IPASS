@@ -1,0 +1,300 @@
+/* Background pattern from subtlepatterns.com */
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,600);
+html{
+  background-color: #E7E7E7;
+  font-family: 'Raleway', sans-serif;
+}
+@media (min-width: 768px) {
+  #menu-toggle {
+    display: none;
+  }
+  .nav-text-margin {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .pull-account-right {
+    float: right!important;
+  }
+}
+@media (max-width: 767px) {
+  .login {
+      margin: 108px 0;
+      width: 100% !important;
+  }
+  .login-header, .login-content {
+      width: 100% !important;
+  }
+  html {
+    background-color: #fff;
+  }
+}
+/* Begin Login page */
+.login {
+    margin: 168px 0;
+    position: relative;
+}
+
+.login .login-header {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    right: 0;
+    width: 450px;
+    padding: 0 40px;
+    margin-left: -225px;
+    font-weight: 300;
+}
+
+.login .login-content {
+    padding: 30px 40px;
+    color: #999;
+    width: 450px;
+    margin: 0 auto;
+}
+
+.login .space-input {
+    margin-top: 8px;
+}
+
+.login .input-height {
+  height: 40px;
+}
+
+.bg-blueblack {
+    background: #23313e!important;
+}
+
+.btn-signIn {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.btn-main {
+ color: #ffffff;
+ background-color: #4392D9;
+ border-color: #5195d2;
+}
+
+.btn-main:hover,
+.btn-main:focus,
+.btn-main:active,
+.btn-main.active,
+.btn-main:active:focus,
+.open .dropdown-toggle.btn-main {
+ color: #ffffff;
+ background-color: #3f7eb7;
+ border-color: #285e8e;
+}
+
+.btn-main:active,
+.btn-main.active,
+.open .dropdown-toggle.btn-main {
+ background-image: none;
+}
+
+.btn-main.disabled,
+.btn-main[disabled],
+fieldset[disabled] .btn-main,
+.btn-main.disabled:hover,
+.btn-main[disabled]:hover,
+fieldset[disabled] .btn-main:hover,
+.btn-main.disabled:focus,
+.btn-main[disabled]:focus,
+fieldset[disabled] .btn-main:focus,
+.btn-main.disabled:active,
+.btn-main[disabled]:active,
+fieldset[disabled] .btn-main:active,
+.btn-main.disabled.active,
+.btn-main[disabled].active,
+fieldset[disabled] .btn-main.active {
+ background-color: #226AA7;
+ border-color: #154B79;
+}
+
+.btn-main .badge {
+ color: #226AA7;
+ background-color: #ffffff;
+}
+
+/* End Login page */
+
+#menu-toggle {
+  height: 40px;
+  width: 40px;
+  padding: 7px 9px;
+  line-height: 0;
+  font-size: 21px;
+  margin-right: 10px;
+}
+
+/* Begin Nav */
+
+.navbar {
+  margin-bottom: 0px !important;
+}
+
+.nav-text-margin {
+  display: inline;
+}
+#custom-menu.navbar-default .navbar-brand {
+    color: rgba(255, 255, 255, 1);
+}
+#custom-menu.navbar-default {
+    font-size: 14px;
+    background-color: rgba(67, 146, 217, 1);
+    border-width: 0px;
+    border-radius: 0px;
+}
+#custom-menu.navbar-default .navbar-nav>li>a {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(67, 146, 217, 1);
+}
+#custom-menu.navbar-default .navbar-nav>li>a:hover,
+#custom-menu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(54, 126, 194, 1);
+}
+#custom-menu.navbar-default .navbar-nav>.active>a,
+#custom-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(54, 126, 194, 1);
+}
+#custom-menu.navbar-default .navbar-toggle {
+    border-color: #367ec2;
+}
+#custom-menu.navbar-default .navbar-toggle:hover,
+#custom-menu.navbar-default .navbar-toggle:focus {
+    background-color: #367ec2;
+}
+#custom-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #367ec2;
+}
+#custom-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #4392d9;
+}
+
+@media (max-width: 767px) {
+#custom-menu.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, #custom-menu.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+    color: #fff;
+    background-color: transparent;
+  }
+  #custom-menu.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+      color: #fff;
+  }
+}
+
+/* Begin Rooster */
+.dag {
+       font-size: 19px;
+       font-weight: 500;
+       margin-bottom: 15px;
+       border-bottom: 1px #b7b7b7 solid;
+}
+.week {
+  font-size: 21px;
+  margin-bottom: 15px;
+  text-align: center;
+  border-left: 1px;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px;
+  border-color: #b7b7b7;
+  border-style: solid;
+  padding: 5px 0px;
+}
+.week-title {
+  font-size: 20px;
+  font-weight: 400;
+  border-left: 1px;
+  border-top: 1px;
+  border-right: 1px;
+  border-bottom: 1px;
+  border-color: #b7b7b7;
+  border-style: solid;
+  border-radius: 10px 10px 0px 0px;
+  padding: 3px 10px
+}
+.week-title-right {
+  border-radius: 0px 10px 0px 0px;
+  border-left: 0px;
+  border-right: 1px;
+  border-top: 1px;
+  border-bottom: 1px;
+  border-color: #b7b7b7;
+  border-style: solid;
+  min-height: 35px;
+
+}
+.week-title-right-btn {
+  width: 100%;
+}
+.week-container-right {
+  min-height: 47px;
+  border-left: 1px;
+  border-right: 1px;
+  border-top: 0px;
+  border-bottom: 1px;
+  border-color: #b7b7b7;
+  border-style: solid;
+  padding: 6px;
+}
+.week-text {
+  display: inline;
+  padding: 0px 5px;
+}
+.week-nav-btn {
+  border-radius: 50px;
+  padding: 6px 9px;
+  margin-bottom: 1px;
+}
+.padding-right-null {
+  padding-right: 0;
+}
+.padding-left-right-null {
+  padding-left: 0;
+  padding-right: 0;
+}
+.informatieblok {
+  border: 1px solid;
+  border-color: #b7b7b7;
+  padding: 2px 6px;
+  margin-bottom: 10px;
+}
+.i-tijd {
+  border-bottom: 1px solid #b7b7b7;
+  padding-bottom: 3px;
+}
+.i-locatie {
+  font-size: 13px;
+  padding-top: 3px;
+  padding-left: 1px;
+}
+.i-student {
+  font-size: 13px;
+  padding-top: 0px;
+  padding-left: 1px;
+}
+.background-blue-main {
+  background-color: #4392D9;
+}
+.informatieblok-checkbox {
+  margin-top: 2px !important;
+  margin-bottom: 1px !important;
+}
+
+/* Begin Uren openstellen */
+.u-title {
+  margin-bottom: 15px;
+}
+.u-label {
+  padding-top: 7px;
+}
+.u-margin {
+  margin-bottom: 10px;
+}
+hr.divider {
+	border-top: 1px solid #b7b7b7;
+}
