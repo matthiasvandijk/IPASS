@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -23,40 +24,46 @@ public class LoginServlet extends HttpServlet {
 		String wachtwoord = req.getParameter("login_password");
 		
 		int index = email.indexOf('@');
-		String email_domain = email.substring(index);
-		
-		if (email_domain.equals("@student.hu.nl")) {
-			//Email van een student.
+		if (index > 0) {
 			
-			Student student = sp.getStudentByEmail(email);
-			if (student != null && student.verifyPassword(wachtwoord)) {
-				req.getSession().setAttribute("user", student);
-				Cookie c = new Cookie("email", email);
-				resp.addCookie(c);
-				resp.sendRedirect("student/");
+			String email_domain = email.substring(index);
+			
+			if (email_domain.equals("@student.hu.nl")) {
+				//Email van een student.
+				
+				Student student = sp.getStudentByEmail(email);
+				if (student != null && student.verifyPassword(wachtwoord)) {
+					req.getSession().setAttribute("user", student);
+					Cookie c = new Cookie("email", email);
+					resp.addCookie(c);
+					resp.sendRedirect("student/");
+					return;
+				} 
+				
+			} else if (email_domain.equals("@hu.nl")) {
+				//Email van een docent (SLBer).
+				
+				Slb slber = sp.getSlbByEmail(email);
+				if (slber != null && slber.verifyPassword(wachtwoord)) {
+					req.getSession().setAttribute("user", slber);
+					Cookie c = new Cookie("email", email);
+					resp.addCookie(c);
+					resp.sendRedirect("slb/");
+					return;
+				} 
+				
+			} else {
+				req.setAttribute("error","E-mail moet onderdeel zijn van het domein 'hu.nl'!");
+				RequestDispatcher rd =req.getRequestDispatcher("/index.jsp");            
+				rd.forward(req, resp);
 				return;
-			} 
-			
-		} else if (email_domain.equals("@hu.nl")) {
-			//Email van een docent (SLBer).
-			
-			Slb slber = sp.getSlbByEmail(email);
-			if (slber != null && slber.verifyPassword(wachtwoord)) {
-				req.getSession().setAttribute("user", slber);
-				Cookie c = new Cookie("email", email);
-				resp.addCookie(c);
-				resp.sendRedirect("slb/");
-				return;
-			} 
-			
-		} else {
-			//Domein is niet van de HU afkomstig.
+			}
 		}
 		
 		//Email of Wachtwoord onjuist:
 		
-		System.out.println(email + wachtwoord);
-
-		resp.sendRedirect(req.getContextPath() + "/"); 
+		req.setAttribute("error","E-mail of Wachtwoord is onjuist!");
+		RequestDispatcher rd =req.getRequestDispatcher("/index.jsp");            
+		rd.forward(req, resp);
 	}
 }

@@ -25,6 +25,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>UrenOpenstellenServlet</servlet-name>
+		<servlet-class>controller.UrenOpenstellenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UrenOpenstellenServlet</servlet-name>
+		<url-pattern>/slb/UrenOpenstellen.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>slbDashboard</servlet-name>
 		<jsp-file>/slbdashboard.jsp</jsp-file>
 	</servlet>

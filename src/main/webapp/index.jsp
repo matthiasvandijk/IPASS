@@ -51,11 +51,18 @@
 	<div class="login-content">
 			<form class="form-horizontal" method="post"
 				action="${pageContext.request.contextPath}/LoginServlet.do">
+				<c:if test="${not empty requestScope.error}">
+			      <div class="has-error">
+				</c:if>
 				<input type="text" class="form-control input-height"
 					placeholder="E-mail" name="login_email" value="<%= email %>"> <input type="password"
 					class="form-control space-input input-height"
-					placeholder="Wachtwoord" name="login_password"> <button
-					class="btn btn-signIn btn-main" type="submit">Aanmelden</button>
+					placeholder="Wachtwoord" name="login_password"> 
+				<c:if test="${not empty requestScope.error}">
+		      		<span id="helpBlock" class="help-block">${requestScope.error}</span>
+		      		</div>
+				</c:if>
+					<button class="btn btn-signIn btn-main" type="submit">Aanmelden</button>
 			</form>
 	</div>
 </div>

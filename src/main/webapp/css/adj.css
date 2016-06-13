@@ -117,6 +117,10 @@ fieldset[disabled] .btn-main.active {
  background-color: #ffffff;
 }
 
+#helpBlock {
+    margin-bottom: 0px;
+}
+
 /* End Login page */
 
 #menu-toggle {
