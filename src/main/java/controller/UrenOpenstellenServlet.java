@@ -136,7 +136,18 @@ public class UrenOpenstellenServlet extends HttpServlet {
 		}
 		
 		Slb slb = (Slb) req.getSession().getAttribute("user");
-		sp.createAfspraak(datum, begintijd, eindtijd, checkbox_split_req, split, locatie_req, slb);
+		try {
+			if (!sp.createAfspraak(datum, begintijd, eindtijd, checkbox_split_req, split, locatie_req, slb)) {
+				req.setAttribute("errorBegintijd"," ");
+				req.setAttribute("errorEindtijd","De geselecteerde tijden zijn al bezet! (Heeft u deze tijden al eerder opengesteld?)");
+				RequestDispatcher rd =req.getRequestDispatcher("/uren_openstellen.jsp");            
+				rd.forward(req, resp);
+				return;
+			}
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		resp.sendRedirect(req.getContextPath() + "/slb/"); 
 	
