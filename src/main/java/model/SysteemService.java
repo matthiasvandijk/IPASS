@@ -4,8 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import model.domain.Afspraak;
 import model.domain.Slb;
 import model.domain.Student;
 import persistence.AfspraakDAO;
@@ -25,11 +27,19 @@ public class SysteemService {
 		return studentDAO.findByEmail(email);
 	}
 	
-	public String minToH_M(int t) {
+	public Student getStudentById(int idStudent) {
+		return studentDAO.findById(idStudent);
+	}
+	
+	public String minToH_M(int t) { //Essential for 'createAfspraak'
 		int u = (t / 60) % 24;  // calc aantal uur
 		int m = t % 60;         // calc aantal min
 		
 		return String.format("%02d:%02d", u, m);
+	}
+	
+	public List<Afspraak> getAfsprakenByWeekSlb(Slb slb, Calendar datum) throws ParseException {
+		return afspraakDAO.getAfsprakenByWeekAndSlb(datum.get(Calendar.WEEK_OF_YEAR), datum.get(Calendar.YEAR), slb);
 	}
 	
 	public boolean createAfspraak(Calendar datum, Date begintijd, Date eindtijd, String checkbox_split, int split, String locatie ,Slb slb) throws ParseException {

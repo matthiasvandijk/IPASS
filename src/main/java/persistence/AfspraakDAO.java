@@ -106,6 +106,26 @@ public class AfspraakDAO extends BaseDAO {
 		return result;
 	}
 	
+	public List<Afspraak> getAfsprakenByWeekAndSlb(int week, int jaar, Slb slb) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar datum = Calendar.getInstance();
+		datum.setWeekDate(jaar, week, Calendar.MONDAY);
+		String maandag = sdf.format(datum.getTime());
+		
+		datum.setWeekDate(jaar, week, Calendar.SATURDAY);
+		String zaterdag = sdf.format(datum.getTime());
+		
+		String query = "SELECT * FROM afspraak WHERE datum BETWEEN CAST(? AS DATE) "
+				+ "AND CAST(? AS DATE) AND idSlb=? order by datum, begintijd asc;";
+		
+		ArrayList<Object> data = new ArrayList<>();
+		data.add(maandag);
+		data.add(zaterdag);
+		data.add(slb.getSlb_id());
+		
+		return selectAfspraken(query, data);
+	}
+	
 	public boolean insert(Calendar datum, Date begintijd, Date eindtijd, String locatie ,Slb slb) {
 		Boolean result = false;
 		String query = "INSERT INTO afspraak (`idSlb`, `datum`, `begintijd`, `eindtijd`, `locatie`, `onderwerp`, `idStudent`)"

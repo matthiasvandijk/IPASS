@@ -27,6 +27,13 @@ public class Afspraak {
 		this.student = student;
 		
 	}
+	
+	public boolean sameDate(Calendar datum_extern) {
+		boolean result = datum.get(Calendar.YEAR) == datum_extern.get(Calendar.YEAR) &&
+				 datum.get(Calendar.MONTH) == datum_extern.get(Calendar.MONTH) &&
+				 datum.get(Calendar.DAY_OF_MONTH) == datum_extern.get(Calendar.DAY_OF_MONTH);
+		return result;
+	}
 
 	public String getOnderwerp() {
 		return onderwerp;

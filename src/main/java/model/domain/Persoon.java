@@ -28,4 +28,8 @@ public class Persoon {
 	public boolean verifyPassword(String wachtwoord) {
 		return this.wachtwoord.equals(wachtwoord);
 	}
+	
+	public String getVolledigeNaam() {
+		return (voornaam + " " + achternaam);
+	}
 }

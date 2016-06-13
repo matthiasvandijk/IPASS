@@ -34,6 +34,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>SlbRoosterServlet</servlet-name>
+		<servlet-class>controller.SlbRoosterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SlbRoosterServlet</servlet-name>
+		<url-pattern>/slb/SlbRoosterServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>slbDashboard</servlet-name>
 		<jsp-file>/slbdashboard.jsp</jsp-file>
 	</servlet>

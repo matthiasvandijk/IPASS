@@ -1,0 +1,121 @@
+package controller;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+
+import javax.json.Json;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObjectBuilder;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.ServiceProvider;
+import model.SysteemService;
+import model.domain.Afspraak;
+import model.domain.Slb;
+
+public class SlbRoosterServlet extends HttpServlet {
+	private static final long serialVersionUID = -6130414436416833725L;
+	private SysteemService sp = ServiceProvider.getService();
+	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String type = req.getParameter("type");
+		Calendar datum = Calendar.getInstance();
+		
+		
+		if (type.equals("anders")) {
+			String web_week = req.getParameter("web_week");
+			int web_week_int = Integer.parseInt(web_week);
+			datum.setWeekDate(datum.get(Calendar.YEAR), web_week_int, Calendar.MONDAY);
+		}
+		
+		Slb slb = (Slb) req.getSession().getAttribute("user");
+		ArrayList<Afspraak> afspraken = null;
+		try {
+			afspraken = (ArrayList<Afspraak>) sp.getAfsprakenByWeekSlb(slb, datum);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		int week = datum.get(Calendar.WEEK_OF_YEAR);
+		ArrayList<Calendar> weekdata = new ArrayList<>();
+		
+		Calendar maandag = Calendar.getInstance();
+		maandag.setWeekDate(datum.get(Calendar.YEAR), week, Calendar.MONDAY);
+		weekdata.add(maandag);
+		
+		Calendar dinsdag = Calendar.getInstance();
+		dinsdag.setWeekDate(datum.get(Calendar.YEAR), week, Calendar.TUESDAY);
+		weekdata.add(dinsdag);
+		
+		Calendar woensdag = Calendar.getInstance();
+		woensdag.setWeekDate(datum.get(Calendar.YEAR), week, Calendar.WEDNESDAY);
+		weekdata.add(woensdag);
+		
+		Calendar donderdag = Calendar.getInstance();
+		donderdag.setWeekDate(datum.get(Calendar.YEAR), week, Calendar.THURSDAY);
+		weekdata.add(donderdag);
+		
+		Calendar vrijdag = Calendar.getInstance();
+		vrijdag.setWeekDate(datum.get(Calendar.YEAR), week, Calendar.FRIDAY);
+		weekdata.add(vrijdag);
+		
+		Calendar zaterdag = Calendar.getInstance();
+		zaterdag.setWeekDate(datum.get(Calendar.YEAR), week, Calendar.SATURDAY);
+		weekdata.add(zaterdag);
+		
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf_tijd = new SimpleDateFormat("HH:mm");	
+		
+		for (int y = 0; y < weekdata.size(); y++) {
+			JsonObjectBuilder job_dates = Json.createObjectBuilder();
+			job_dates.add("datum", sdf.format(weekdata.get(y).getTime()));
+			
+			JsonArrayBuilder jab_blok = Json.createArrayBuilder();
+			JsonObjectBuilder job_afspraken = Json.createObjectBuilder();
+			
+			if (afspraken != null) {
+				for (int i = 0; i < afspraken.size(); i++) {
+					
+					if (afspraken.get(i).sameDate(weekdata.get(y))) {
+						job_afspraken.add("idAfspraak", afspraken.get(i).getId_afspraak());
+						job_afspraken.add("begintijd", sdf_tijd.format(afspraken.get(i).getBegintijd()));
+						job_afspraken.add("eindtijd", sdf_tijd.format(afspraken.get(i).getEindtijd()));
+						job_afspraken.add("locatie", afspraken.get(i).getLocatie());
+						
+						if (afspraken.get(i).getStudent() == null) {
+						job_afspraken.addNull("studentnaam");
+						} else {
+							job_afspraken.add("studentnaam", afspraken.get(i).getStudent().getVolledigeNaam());
+						}
+						jab_blok.add(job_afspraken);
+					}
+					
+				}
+				
+			}
+			job_dates.add("blok", jab_blok);
+			jab.add(job_dates);
+			
+		}
+		//Add current week.
+		JsonObjectBuilder job_week = Json.createObjectBuilder();
+		job_week.add("week", week);
+		jab.add(job_week);
+		
+		String json = jab.build().toString();
+		resp.setContentType("application/json");
+	    resp.setCharacterEncoding("UTF-8");
+	    resp.getWriter().write(json);
+	}
+
+}

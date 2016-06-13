@@ -22,9 +22,9 @@
 											<div class="row">
 													<div class="col-md-9 padding-right-null">
 														<div class="week">
-															<a href="#" class="btn week-nav-btn btn-main" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+															<a href="#" class="btn week-nav-btn btn-main" id="terug" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
 															<div class="week-text"> Week <span id="weeknummer">5</span></div>
-															<a href="#" class="btn week-nav-btn btn-main" role="button"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+															<a href="#" class="btn week-nav-btn btn-main" id="verder" role="button"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 														</div>
 													<div class="row">
 														<div class="col-md-2" id="MA">
@@ -113,6 +113,8 @@
       <!-- /#page-content-wrapper -->
 
     </div><!-- /#wrapper -->
+
+<script src="${pageContext.request.contextPath}/js/slb.js"></script>
     
 <%@ include file="footer.jsp" %>    
     
