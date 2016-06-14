@@ -10,10 +10,11 @@
               <div class="row">
                   <div class="col-sm-12 col-md-6">
                       <h3 class="u-title">Afspraak inplannen</h3>
-
+                      
+								<c:if test="${empty requestScope.error}">
 											<form class="form-horizontal" method="post"
-											action="${pageContext.request.contextPath}/slb/UrenOpenstellen.do">
-
+											action="${pageContext.request.contextPath}/student/StudentAfspraakInplannenServlet.do">
+								
 											<div class="row">
 												<div class="col-md-10">
 														<hr class="divider" style="margin-top: 5px;margin-bottom: 10px;">
@@ -23,28 +24,28 @@
 											<div class="row u-margin">
 												<div class="col-md-2"><label class="control-label u-label">Datum:</label></div>
 												<div class="col-md-8">
-															<label class="control-label u-label label-mod">(MA)30-05-2016</label>
+															<label class="control-label u-label label-mod">${requestScope.datum}</label>
 												</div>
 											</div>
 
 											<div class="row u-margin">
 												<div class="col-md-2"><label class="control-label u-label">Begintijd:</label></div>
 												<div class="col-md-8">
-															<label class="control-label u-label label-mod">13:00</label>
+															<label class="control-label u-label label-mod">${requestScope.begintijd}</label>
 												</div>
 											</div>
 
 											<div class="row u-margin">
 												<div class="col-md-2"><label class="control-label u-label">Eindtijd:</label></div>
 												<div class="col-md-8">
-															<label class="control-label u-label label-mod">14:00</label>
+															<label class="control-label u-label label-mod">${requestScope.eindtijd}</label>
 												</div>
 											</div>
 
 											<div class="row u-margin">
 												<div class="col-md-2"><label class="control-label u-label">Locatie:</label></div>
 												<div class="col-md-8">
-															<label class="control-label u-label label-mod">NN1-D01.10</label>
+															<label class="control-label u-label label-mod">${requestScope.locatie}</label>
 												</div>
 											</div>
 
@@ -58,22 +59,32 @@
 												<div class="col-md-2"><label class="control-label u-label">Onderwerp:</label></div>
 												<div class="col-md-8">
 
-
+														<input type="hidden" name="afspraakId" value="${requestScope.afspraakId}">
 														<input type="text" class="form-control" name="onderwerp" placeholder="Voorbeeld: Studievoortgang">
-
+									</c:if>					
+														<c:if test="${not empty requestScope.error}">
+														<div class="u-margin">
+																<div class="has-error">
+																	<span class="help-block">${requestScope.error}</span>
+																</div>
+															
+														</div>	
+														</c:if>		
+									<c:if test="${empty requestScope.error}">								
 												</div>
 											</div>
-
+									</c:if>
 											<div class="row">
 												<div class="col-md-10">
-													<div class="pull-right">
-														<a href="#" class="btn btn-default" role="button">Annuleren</a>
-														<button class="btn btn-main" type="submit">Afspraak inplannen</button>
-													</div>
+												<c:if test="${empty requestScope.error}"><div class="pull-right"></c:if>
+														<a href="${pageContext.request.contextPath}/student/" class="btn btn-default" role="button">Annuleren</a>
+														<c:if test="${empty requestScope.error}"><button class="btn btn-main" type="submit">Afspraak inplannen</button></c:if>
+												<c:if test="${empty requestScope.error}"></div></c:if>
 												</div>
 											</div>
-
+									<c:if test="${empty requestScope.error}">
 											</form>
+									</c:if>		
 
                   </div>
               </div>

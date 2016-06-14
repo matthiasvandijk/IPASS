@@ -8,7 +8,17 @@
           <div class="container-fluid">
               <div class="row">
                   <div class="col-lg-12">
+                  
+                  <c:if test="${not empty requestScope.success}">
+                  	<div class="alert alert-success alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<strong>Goed bezig!</strong> ${requestScope.success}
+					</div>
+                  </c:if>
+                  
                     <h2 class="margin-title">Dashboard</h2>
+                    <c:if test="${user.slber != null}">
+                    	<div style="margin-bottom: 5px;font-size: 16px;text-decoration: underline;"><span>Rooster van: ${user.slber.getVolledigeNaam()}</span></div>
 											<div class="row">
 													<div class="col-md-12 col-lg-10 padding-right-null">
 														<div class="week-title">
@@ -20,9 +30,9 @@
 											<div class="row">
 													<div class="col-md-12 col-lg-10 padding-right-null">
 														<div class="week week-student">
-															<a href="#" class="btn week-nav-btn btn-main" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+															<button class="btn week-nav-btn btn-main" id="terug"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
 															<div class="week-text"> Week <span id="weeknummer">5</span></div>
-															<a href="#" class="btn week-nav-btn btn-main" role="button"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+															<button class="btn week-nav-btn btn-main" id="verder"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
 														</div>
 													<div class="row">
 														<div class="col-md-2" id="MA">
@@ -97,6 +107,12 @@
 													</div>
 
 											</div>
+							<script src="${pageContext.request.contextPath}/js/student.js"></script>
+					</c:if>
+					<c:if test="${user.slber == null}">
+						Uw account is nog niet gekoppeld met een SLBer.
+					</c:if>
+											
                   </div>
               </div>
           </div>

@@ -39,6 +39,14 @@ public class SysteemService {
 		return studentDAO.veranderSlb(idSlb, idStudent);
 	}
 	
+	public Afspraak getAfspraakById(int afspraakId) throws ParseException {
+		return afspraakDAO.findById(afspraakId);
+	}
+	
+	public boolean afspraakInplannen(int studentId, int afspraakId, String onderwerp) {
+		return afspraakDAO.afspraakInplannen(afspraakId, onderwerp, studentId);
+	}
+	
 	private String minToH_M(int t) { //Essential for 'createAfspraak'
 		int u = (t / 60) % 24;  // calc aantal uur
 		int m = t % 60;         // calc aantal min
@@ -47,6 +55,10 @@ public class SysteemService {
 	}
 	
 	public List<Afspraak> getAfsprakenByWeekSlb(Slb slb, Calendar datum) throws ParseException {
+		return afspraakDAO.getAfsprakenByWeekAndSlb(datum.get(Calendar.WEEK_OF_YEAR), datum.get(Calendar.YEAR), slb);
+	}
+	
+	public List<Afspraak> getAfsprakenByWeekSlbforStudent(Slb slb, Calendar datum) throws ParseException {
 		return afspraakDAO.getAfsprakenByWeekAndSlb(datum.get(Calendar.WEEK_OF_YEAR), datum.get(Calendar.YEAR), slb);
 	}
 	

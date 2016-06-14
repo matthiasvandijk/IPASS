@@ -29,6 +29,7 @@ public class StudentAuthFilter implements Filter{
 
 		if (request.getSession().getAttribute("user") == null || !(request.getSession().getAttribute("user") instanceof Student)) {
 			request.getSession().removeAttribute("user");
+			request.getSession().invalidate();
 
 			response.sendRedirect(request.getContextPath() + "/"); 
 			return;

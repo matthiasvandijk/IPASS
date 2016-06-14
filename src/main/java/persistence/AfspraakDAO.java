@@ -78,6 +78,36 @@ public class AfspraakDAO extends BaseDAO {
 		return results;
 	}
 	
+	public Afspraak findById(int afspraakId) throws ParseException {
+		ArrayList<Object> afspraken = new ArrayList<>();
+		afspraken.add(afspraakId);
+		
+		List<Afspraak> afspraak = selectAfspraken("SELECT * FROM afspraak WHERE idAfspraak = ?", afspraken);
+		if (afspraak == null) {
+			return null;
+		}
+		return afspraak.get(0);
+	}
+	
+	public boolean afspraakInplannen(int afspraakId, String onderwerp, int studentId) {
+		boolean result = false;
+		String query = "UPDATE afspraak SET onderwerp=?, idStudent=? WHERE idAfspraak=?;";
+		
+		try (Connection con = super.getConnection()) {
+			java.sql.PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, onderwerp);
+			ps.setInt(2, studentId);
+			ps.setInt(3, afspraakId);
+
+			if (ps.executeUpdate() == 1) { // 1 row updated!
+				result = true;
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		return result;
+	}
+	
 	public boolean openstellenMogelijkheid(Calendar datum, Date begintijd, Date eindtijd) throws ParseException {
 		Boolean result = false;
 		String query = "SELECT * FROM afspraak WHERE datum= ? AND ((? = begintijd) or (? = eindtijd) "

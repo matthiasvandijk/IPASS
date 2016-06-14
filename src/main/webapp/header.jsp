@@ -72,8 +72,13 @@
 		<!-- Sidebar -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li><a href="${pageContext.request.contextPath}/slb/">Dashboard</a></li>
-				<li><a href="${pageContext.request.contextPath}/slb/student_toevoegen/">Student toevoegen</a></li>
+				<c:if test="${user.getClass().name == \"model.domain.Slb\"}">
+					<li><a href="${pageContext.request.contextPath}/slb/">Dashboard</a></li>
+					<li><a href="${pageContext.request.contextPath}/slb/student_toevoegen/">Student toevoegen</a></li>
+				</c:if>
+				<c:if test="${user.getClass().name == \"model.domain.Student\"}">
+				    <li><a href="${pageContext.request.contextPath}/student/">Dashboard</a></li>
+				</c:if>
 			</ul>
 		</div>
 		<!-- /#sidebar-wrapper -->

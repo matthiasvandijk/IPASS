@@ -43,6 +43,24 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>StudentRoosterServlet</servlet-name>
+		<servlet-class>controller.StudentRoosterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudentRoosterServlet</servlet-name>
+		<url-pattern>/student/StudentRoosterServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>StudentAfspraakInplannenServlet</servlet-name>
+		<servlet-class>controller.StudentAfspraakInplannenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudentAfspraakInplannenServlet</servlet-name>
+		<url-pattern>/student/StudentAfspraakInplannenServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>StudentToevoegenServlet</servlet-name>
 		<servlet-class>controller.StudentToevoegenServlet</servlet-class>
 	</servlet>
@@ -58,6 +76,15 @@
 	<servlet-mapping>
 		<servlet-name>slbDashboard</servlet-name>
 		<url-pattern>/slb/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>studentDashboard</servlet-name>
+		<jsp-file>/studentdashboard.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>studentDashboard</servlet-name>
+		<url-pattern>/student/</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
