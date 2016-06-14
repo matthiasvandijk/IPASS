@@ -18,7 +18,7 @@
                   
                     <h2 class="margin-title">Dashboard</h2>
                     <c:if test="${user.slber != null}">
-                    	<div style="margin-bottom: 5px;font-size: 16px;text-decoration: underline;"><span>Rooster van: ${user.slber.getVolledigeNaam()}</span></div>
+                    	<div style="margin-bottom: 5px;font-size: 16px;text-decoration: underline;"><span>Rooster van: ${fn:escapeXml(user.slber.getVolledigeNaam())}</span></div>
 											<div class="row">
 													<div class="col-md-12 col-lg-10 padding-right-null">
 														<div class="week-title">
@@ -39,25 +39,7 @@
 
 															<div class="dag" id="MAdate"></div>
 															<div id="MAcontent">
-																<div class="informatieblok">
-																	<div class="i-tijd"><span class="label background-blue-main">13:00 - 14:00</span></div>
-																	<div class="i-locatie">NN1-D01.10</div>
-																	<div class="i-student">Matthias van dijk</div>
-																</div>
-
-																<div class="informatieblok">
-																	<a class="no-dec" href="#">
-																	<div class="i-tijd"><span class="label label-success">13:00 - 14:00</span></div>
-																	<div class="i-locatie hover-dec">OPEN</div>
-																	<div class="i-student"></div>
-																	</a>
-																</div>
-
-																<div class="informatieblok">
-																	<div class="i-tijd"><span class="label label-warning">13:00 - 14:00</span></div>
-																	<div class="i-locatie">BEZET</div>
-																	<div class="i-student"></div>
-																</div>
+																
 															</div>
 														</div>
 

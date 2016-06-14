@@ -22,7 +22,7 @@
 
 													<div id="datum">
 														<div class="input-group date">
-															<input type="text" class="form-control" name="datum" placeholder="dd/mm/yyyy" value="${requestScope.datum}"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+															<input type="text" class="form-control" name="datum" placeholder="dd/mm/yyyy" value="${fn:escapeXml(requestScope.datum)}"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
 														</div>
 													</div>
 													<c:if test="${not empty requestScope.errorDatum}">
@@ -42,7 +42,7 @@
 												<div class="col-md-8">
 
 													<div class="input-group clockpicker">
-														<input type="text" name="begintijd" id="begintijd" class="form-control" placeholder="hh:mm" value="${requestScope.begintijd}">
+														<input type="text" name="begintijd" id="begintijd" class="form-control" placeholder="hh:mm" value="${fn:escapeXml(requestScope.begintijd)}">
 														<span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
 														</span>
@@ -64,7 +64,7 @@
 												<div class="col-md-8">
 
 													<div class="input-group clockpicker">
-														<input type="text" name="eindtijd" id="eindtijd" class="form-control" placeholder="hh:mm" value="${requestScope.eindtijd}">
+														<input type="text" name="eindtijd" id="eindtijd" class="form-control" placeholder="hh:mm" value="${fn:escapeXml(requestScope.eindtijd)}">
 														<span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
 														</span>
@@ -85,7 +85,7 @@
 											</div>
 
 											<div class="checkbox informatieblok-checkbox checkbox-primary">
-												<input name="checkbox_split" type="checkbox" id="checkbox_split" ${requestScope.checkbox_split}>
+												<input name="checkbox_split" type="checkbox" id="checkbox_split" ${fn:escapeXml(requestScope.checkbox_split)}>
 												<label for="checkbox_split">
 													Split functie
 												</label>
@@ -98,7 +98,7 @@
 												<div class="col-md-2"><label class="control-label u-label">Split:</label></div>
 												<div class="col-md-8">
 													<div class="input-group">
-														<input type="text" name="split" class="form-control" placeholder="60" value="${requestScope.split}"><span class="input-group-addon">Min</span>
+														<input type="text" name="split" class="form-control" placeholder="60" value="${fn:escapeXml(requestScope.split)}"><span class="input-group-addon">Min</span>
 													</div>
 													<c:if test="${not empty requestScope.errorSplit}">
 														<span class="help-block">${requestScope.errorSplit}</span>
@@ -123,7 +123,7 @@
 												<div class="col-md-8">
 
 
-														<input name="locatie" type="text" class="form-control" placeholder="NN1-" value="${requestScope.locatie}">
+														<input name="locatie" type="text" class="form-control" placeholder="NN1-" value="${fn:escapeXml(requestScope.locatie)}">
 														<c:if test="${not empty requestScope.errorLocatie}">
 															<span class="help-block">${requestScope.errorLocatie}</span>
 														</c:if>

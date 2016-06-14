@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.*" %>    
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +55,7 @@
 							<li>
 								<a href="#" class="dropdown-toggle account-menu" data-toggle="dropdown">
 									<span class="glyphicon glyphicon-user user-icon" aria-hidden="true"></span>
-									<span class="capitalize">${user.voornaam} ${user.achternaam}</span>
+									<span class="capitalize">${fn:escapeXml(user.voornaam)} ${fn:escapeXml(user.achternaam)}</span>
 								</a>
 								<ul class="dropdown-menu dropdown-menu-right">
 									<li><a href="#"><i class="dropdown-icon fa fa-cog"></i>Instellingen</a></li>

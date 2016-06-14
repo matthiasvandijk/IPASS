@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import model.ServiceProvider;
 import model.SysteemService;
 import model.domain.Afspraak;
@@ -94,14 +96,14 @@ public class SlbRoosterServlet extends HttpServlet {
 					
 					if (afspraken.get(i).sameDate(weekdata.get(y))) {
 						job_afspraken.add("idAfspraak", afspraken.get(i).getId_afspraak());
-						job_afspraken.add("begintijd", sdf_tijd.format(afspraken.get(i).getBegintijd()));
-						job_afspraken.add("eindtijd", sdf_tijd.format(afspraken.get(i).getEindtijd()));
-						job_afspraken.add("locatie", afspraken.get(i).getLocatie());
+						job_afspraken.add("begintijd", StringEscapeUtils.escapeXml11(sdf_tijd.format(afspraken.get(i).getBegintijd())));
+						job_afspraken.add("eindtijd", StringEscapeUtils.escapeXml11(sdf_tijd.format(afspraken.get(i).getEindtijd())));
+						job_afspraken.add("locatie", StringEscapeUtils.escapeXml11((afspraken.get(i).getLocatie())));
 						
 						if (afspraken.get(i).getStudent() == null) {
 						job_afspraken.addNull("studentnaam");
 						} else {
-							job_afspraken.add("studentnaam", afspraken.get(i).getStudent().getVolledigeNaam());
+							job_afspraken.add("studentnaam", StringEscapeUtils.escapeXml11(afspraken.get(i).getStudent().getVolledigeNaam()));
 						}
 						jab_blok.add(job_afspraken);
 					}

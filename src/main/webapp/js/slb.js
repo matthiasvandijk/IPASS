@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				"<div class=\"i-student\">OPEN</div></div>");
 	}
 	function addBlockAfspraak(content, id, begintijd, eindtijd, locatie, studentnaam) {
-		$(content).append("<div id=\"" + id + "\" class=\"informatieblok\">" +
+		$(content).append("<a class=\"no-dec\" href=\"AfspraakInformatieServlet.do?aID=" + id + "\"><div id=\"" + id + "\" class=\"informatieblok\">" +
 				"<div class=\"i-tijd\"><span class=\"label background-blue-main\">" + begintijd + " - " + eindtijd + "</span></div>" +
-				"<div class=\"i-locatie\">" + locatie + "</div>" +
-				"<div class=\"i-student\">" + studentnaam + "</div></div>");
+				"<div class=\"i-locatie hover-dec\">" + locatie + "</div>" +
+				"<div class=\"i-student hover-dec\">" + studentnaam + "</div></div></a>");
 	}
 	
 	$.getJSON("SlbRoosterServlet.do?type=init", function(data){

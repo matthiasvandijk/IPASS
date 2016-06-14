@@ -61,6 +61,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>AfspraakInformatieServlet</servlet-name>
+		<servlet-class>controller.AfspraakInformatieServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AfspraakInformatieServlet</servlet-name>
+		<url-pattern>/slb/AfspraakInformatieServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>StudentToevoegenServlet</servlet-name>
 		<servlet-class>controller.StudentToevoegenServlet</servlet-class>
 	</servlet>
@@ -122,5 +131,6 @@
 	  <filter-name>StudentAuth-filter</filter-name>
 	  <url-pattern>/student/*</url-pattern>
 	</filter-mapping>
+	
 </web-app>
 

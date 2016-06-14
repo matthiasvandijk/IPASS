@@ -24,28 +24,28 @@
 											<div class="row u-margin">
 												<div class="col-md-2"><label class="control-label u-label">Datum:</label></div>
 												<div class="col-md-8">
-															<label class="control-label u-label label-mod">${requestScope.datum}</label>
+															<label class="control-label u-label label-mod">${fn:escapeXml(requestScope.datum)}</label>
 												</div>
 											</div>
 
 											<div class="row u-margin">
 												<div class="col-md-2"><label class="control-label u-label">Begintijd:</label></div>
 												<div class="col-md-8">
-															<label class="control-label u-label label-mod">${requestScope.begintijd}</label>
+															<label class="control-label u-label label-mod">${fn:escapeXml(requestScope.begintijd)}</label>
 												</div>
 											</div>
 
 											<div class="row u-margin">
 												<div class="col-md-2"><label class="control-label u-label">Eindtijd:</label></div>
 												<div class="col-md-8">
-															<label class="control-label u-label label-mod">${requestScope.eindtijd}</label>
+															<label class="control-label u-label label-mod">${fn:escapeXml(requestScope.eindtijd)}</label>
 												</div>
 											</div>
 
 											<div class="row u-margin">
 												<div class="col-md-2"><label class="control-label u-label">Locatie:</label></div>
 												<div class="col-md-8">
-															<label class="control-label u-label label-mod">${requestScope.locatie}</label>
+															<label class="control-label u-label label-mod">${fn:escapeXml(requestScope.locatie)}</label>
 												</div>
 											</div>
 
@@ -59,13 +59,13 @@
 												<div class="col-md-2"><label class="control-label u-label">Onderwerp:</label></div>
 												<div class="col-md-8">
 
-														<input type="hidden" name="afspraakId" value="${requestScope.afspraakId}">
+														<input type="hidden" name="afspraakId" value="${fn:escapeXml(requestScope.afspraakId)}">
 														<input type="text" class="form-control" name="onderwerp" placeholder="Voorbeeld: Studievoortgang">
 									</c:if>					
 														<c:if test="${not empty requestScope.error}">
 														<div class="u-margin">
 																<div class="has-error">
-																	<span class="help-block">${requestScope.error}</span>
+																	<span class="help-block">${fn:escapeXml(requestScope.error)}</span>
 																</div>
 															
 														</div>	
