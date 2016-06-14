@@ -43,6 +43,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>StudentToevoegenServlet</servlet-name>
+		<servlet-class>controller.StudentToevoegenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudentToevoegenServlet</servlet-name>
+		<url-pattern>/slb/StudentToevoegenServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>slbDashboard</servlet-name>
 		<jsp-file>/slbdashboard.jsp</jsp-file>
 	</servlet>
@@ -58,6 +67,15 @@
 	<servlet-mapping>
 		<servlet-name>slbUrenOpenstellen</servlet-name>
 		<url-pattern>/slb/uren_openstellen/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Student_Toevoegen</servlet-name>
+		<jsp-file>/student_toevoegen.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Student_Toevoegen</servlet-name>
+		<url-pattern>/slb/student_toevoegen/</url-pattern>
 	</servlet-mapping>
 	
 	<filter>

@@ -8,8 +8,7 @@
           <div class="container-fluid">
               <div class="row">
                   <div class="col-lg-12">
-                      <h1>Content</h1>
-                      <p>Bla bla bla <code>#page-content-wrapper</code>.</p>
+                      <h2 class="margin-title">Dashboard</h2>
 
 											<div class="row">
 													<div class="col-md-11 padding-right-null">

@@ -23,6 +23,10 @@ public class SysteemService {
 		return slbDAO.findByEmail(email);
 	}
 	
+	public Slb getSlbById(int idSlb) {
+		return slbDAO.findById(idSlb);
+	}
+	
 	public Student getStudentByEmail(String email) {
 		return studentDAO.findByEmail(email);
 	}
@@ -31,7 +35,11 @@ public class SysteemService {
 		return studentDAO.findById(idStudent);
 	}
 	
-	public String minToH_M(int t) { //Essential for 'createAfspraak'
+	public boolean setStudentSlb(int idSlb, int idStudent) {
+		return studentDAO.veranderSlb(idSlb, idStudent);
+	}
+	
+	private String minToH_M(int t) { //Essential for 'createAfspraak'
 		int u = (t / 60) % 24;  // calc aantal uur
 		int m = t % 60;         // calc aantal min
 		

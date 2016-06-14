@@ -79,4 +79,22 @@ public class StudentDAO  extends BaseDAO {
 		}
 		return student.get(0);
 	}	
+	
+	public Boolean veranderSlb(int idSlb, int idStudent) {
+		Boolean result = false;
+		String query = "UPDATE student SET idSlb=? WHERE idStudent=?";
+		
+		try (Connection con = super.getConnection()) {
+			java.sql.PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, idSlb);
+			ps.setInt(2, idStudent);
+			
+			if (ps.executeUpdate() == 1) { // 1 row updated!
+				result = true;
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		return result;
+	}
 }

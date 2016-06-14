@@ -39,15 +39,15 @@ public class UrenOpenstellenServlet extends HttpServlet {
 		}
 			
 		boolean leeg = false;
-		if (datum_req == "") {
+		if (datum_req == "" || datum_req == null) {
 			leeg = true;
 			req.setAttribute("errorDatum","Dit veld is verplicht!");
 		}
-		if (begintijd_req == "") {
+		if (begintijd_req == "" || begintijd_req == null) {
 			leeg = true;
 			req.setAttribute("errorBegintijd","Dit veld is verplicht!");
 		}	
-		if (eindtijd_req == "") {
+		if (eindtijd_req == "" || eindtijd_req == null) {
 			leeg = true;
 			req.setAttribute("errorEindtijd","Dit veld is verplicht!");
 		}

@@ -73,7 +73,7 @@
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
 				<li><a href="${pageContext.request.contextPath}/slb/">Dashboard</a></li>
-				<li><a href="#">Studenten</a></li>
+				<li><a href="${pageContext.request.contextPath}/slb/student_toevoegen/">Student toevoegen</a></li>
 			</ul>
 		</div>
 		<!-- /#sidebar-wrapper -->
