@@ -31,7 +31,13 @@ public class SlbRoosterServlet extends HttpServlet {
 		
 		if (type.equals("anders")) {
 			String web_week = req.getParameter("web_week");
-			int web_week_int = Integer.parseInt(web_week);
+			int web_week_int;
+			try {
+				web_week_int = Integer.parseInt(web_week);
+			} catch(NumberFormatException e){
+				//Parsing fails:
+				web_week_int = datum.get(Calendar.WEEK_OF_YEAR);
+		    }
 			datum.setWeekDate(datum.get(Calendar.YEAR), web_week_int, Calendar.MONDAY);
 		}
 		
@@ -73,7 +79,7 @@ public class SlbRoosterServlet extends HttpServlet {
 		
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd LLL");
 		SimpleDateFormat sdf_tijd = new SimpleDateFormat("HH:mm");	
 		
 		for (int y = 0; y < weekdata.size(); y++) {

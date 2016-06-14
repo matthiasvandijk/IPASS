@@ -30,6 +30,16 @@ html{
   }
 }
 /* Begin Login page */
+.login-logo {
+  width: 90%;
+  margin-top: 5px;
+}
+
+.login-logo-mobile {
+  max-width: 250px;
+  margin: 15px 50px;
+}
+
 .login {
     margin: 168px 0;
     position: relative;
@@ -136,6 +146,18 @@ fieldset[disabled] .btn-main.active {
 
 .navbar {
   margin-bottom: 0px !important;
+}
+
+.navbar-logo {
+  width: 175px;
+  margin-top: -3px;
+  margin-left: 5px;
+}
+
+.user-icon {
+  font-size: 16px;
+  padding-right: 4px;
+  top: 2px;
 }
 
 .nav-text-margin {
@@ -293,6 +315,22 @@ fieldset[disabled] .btn-main.active {
   margin-bottom: 1px !important;
 }
 
+/* Student Adj */
+.no-dec {
+  text-decoration: none !important;
+}
+
+a:hover .hover-dec {
+  text-decoration: underline !important;
+}
+
+.margin-title {
+  margin-bottom: 20px;
+}
+.week-student {
+  border-right: solid 1px #b7b7b7 !important;
+}
+
 /* Begin Uren openstellen */
 .u-title {
   margin-bottom: 15px;
@@ -305,4 +343,7 @@ fieldset[disabled] .btn-main.active {
 }
 hr.divider {
 	border-top: 1px solid #b7b7b7;
+}
+.label-mod {
+  font-weight: 300 !important;
 }

@@ -46,7 +46,8 @@
 
 <div class="login bg-blueblack">
 	<div class="login-header">
-		Test
+		<img class="login-logo img-responsive hidden-xs" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="">
+		<img class="login-logo-mobile visible-xs" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="">
 	</div>
 	<div class="login-content">
 			<form class="form-horizontal" method="post"

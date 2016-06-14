@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				"<div class=\"i-student\">" + studentnaam + "</div></div>");
 	}
 	
-	
 	$.getJSON("SlbRoosterServlet.do?type=init", function(data){
 		emptyContent();
 		var list_datums = [];

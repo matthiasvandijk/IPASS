@@ -90,13 +90,13 @@ public class SysteemService {
 					}
 					
 					//Create Afspraak (For loop)
-					System.out.println(afspraakDAO.insert(datum, begintijd_calc, eindtijd_calc, locatie, slb));
+					afspraakDAO.insert(datum, begintijd_calc, eindtijd_calc, locatie, slb);
 				}
 				return true;
 				
 			} else {
 				//Create Afpsraak (No split)
-				System.out.println(afspraakDAO.insert(datum, begintijd, eindtijd, locatie, slb));
+				afspraakDAO.insert(datum, begintijd, eindtijd, locatie, slb);
 				return true;
 			}
 		} else {

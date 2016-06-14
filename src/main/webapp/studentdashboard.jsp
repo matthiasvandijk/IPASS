@@ -4,15 +4,13 @@
 
 <%@ include file="header.jsp" %>
 <!-- Page Content -->
-      <div id="page-content-wrapper" style="min-height: 580px;">
+<div id="page-content-wrapper" style="min-height: 580px;">
           <div class="container-fluid">
               <div class="row">
                   <div class="col-lg-12">
-                      <h1>Content</h1>
-                      <p>Bla bla bla <code>#page-content-wrapper</code>.</p>
-
+                    <h2 class="margin-title">Dashboard</h2>
 											<div class="row">
-													<div class="col-md-11 padding-right-null">
+													<div class="col-md-12 col-lg-10 padding-right-null">
 														<div class="week-title">
 															Weekoverzicht
 														</div>
@@ -20,11 +18,11 @@
 											</div>
 
 											<div class="row">
-													<div class="col-md-9 padding-right-null">
-														<div class="week">
-															<button class="btn week-nav-btn btn-main" id="terug"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+													<div class="col-md-12 col-lg-10 padding-right-null">
+														<div class="week week-student">
+															<a href="#" class="btn week-nav-btn btn-main" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
 															<div class="week-text"> Week <span id="weeknummer">5</span></div>
-															<button class="btn week-nav-btn btn-main" id="verder"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+															<a href="#" class="btn week-nav-btn btn-main" role="button"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 														</div>
 													<div class="row">
 														<div class="col-md-2" id="MA">
@@ -38,17 +36,16 @@
 																</div>
 
 																<div class="informatieblok">
-																	<div class="i-tijd">
+																	<a class="no-dec" href="#">
+																	<div class="i-tijd"><span class="label label-success">13:00 - 14:00</span></div>
+																	<div class="i-locatie hover-dec">OPEN</div>
+																	<div class="i-student"></div>
+																	</a>
+																</div>
 
-																		<div class="checkbox informatieblok-checkbox checkbox-primary">
-																			<input type="checkbox" id="checkbox1">
-																			<label for="checkbox1">
-																				13:00 - 14:00
-																			</label>
-																		</div>
-
-																	</div>
-																	<div class="i-locatie">OPEN</div>
+																<div class="informatieblok">
+																	<div class="i-tijd"><span class="label label-warning">13:00 - 14:00</span></div>
+																	<div class="i-locatie">BEZET</div>
 																	<div class="i-student"></div>
 																</div>
 															</div>
@@ -91,7 +88,7 @@
 
 														<div class="col-md-2" id="ZA">
 
-															<div class="dag" id="ZAdate">ZA 11-06-2016</div>
+															<div class="dag" id="ZAdate"></div>
 															<div id="ZAcontent">
 
 															</div>
@@ -99,12 +96,6 @@
 													</div>
 													</div>
 
-													<div class="col-md-2 padding-left-right-null">
-														<div class="week-container-right">
-															<a href="uren_openstellen/" class="btn btn-main week-title-right-btn btn-default" style="margin-bottom: 8px;" role="button">Uren openstellen</a>
-															<a href="#" class="btn btn-main week-title-right-btn btn-default" role="button">Uren sluiten</a>
-														</div>
-													</div>
 											</div>
                   </div>
               </div>
@@ -112,9 +103,4 @@
       </div>
       <!-- /#page-content-wrapper -->
 
-    </div><!-- /#wrapper -->
-
-<script src="${pageContext.request.contextPath}/js/slb.js"></script>
-    
-<%@ include file="footer.jsp" %>    
-    
+<%@ include file="footer.jsp" %>  

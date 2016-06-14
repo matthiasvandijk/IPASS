@@ -40,7 +40,7 @@
 
 					<div class="navbar-header">
 						<a class="navbar-brand" href="#">
-							<img alt="Brand" src="...">
+							<img alt="Brand" class="img-responsive navbar-logo" src="${pageContext.request.contextPath}/images/logo_white.png">
 						</a>
 						<a href="#menu-toggle" class="btn btn-default navbar-btn pull-right" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
 					</div>
@@ -53,7 +53,7 @@
 						<ul class="nav navbar-nav pull-account-right right-navbar-nav">
 							<li>
 								<a href="#" class="dropdown-toggle account-menu" data-toggle="dropdown">
-									<img src="img/avatar_default.jpg" alt="">
+									<span class="glyphicon glyphicon-user user-icon" aria-hidden="true"></span>
 									<span class="capitalize">${user.voornaam} ${user.achternaam}</span>
 								</a>
 								<ul class="dropdown-menu dropdown-menu-right">
