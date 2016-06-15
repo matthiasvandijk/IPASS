@@ -76,11 +76,11 @@ public class SysteemService {
 			if (checkbox_split != null) {
 				//do split...
 				int aantal_keer = (int) Math.floor(minutes / split);
-				int begintijd_min = (int)  Math.floor(TimeUnit.MILLISECONDS.toMinutes(begintijd.getTime()) + 60); //Timezone...
+				int begintijd_min = (int)  Math.floor(TimeUnit.MILLISECONDS.toMinutes(begintijd.getTime()) - 240); //Timezone...
 				int eindtijd_min = begintijd_min;
 				
 				SimpleDateFormat sdf_tijd = new SimpleDateFormat("HH:mm");
-				sdf_tijd.setTimeZone(TimeZone.getTimeZone("America/Virgin"));
+				sdf_tijd.setTimeZone(TimeZone.getTimeZone("America/Port_of_Spain"));
 				
 				for (int i = 0; i < aantal_keer; i++) {
 					Date begintijd_calc = null;
