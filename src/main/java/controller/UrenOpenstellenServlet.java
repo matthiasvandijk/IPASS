@@ -60,7 +60,7 @@ public class UrenOpenstellenServlet extends HttpServlet {
 		}
 		
 		//String 'datum' to Calendar 'datum'.
-		Calendar datum = Calendar.getInstance();
+		Calendar datum = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		try {
 			datum.setTime(sdf.parse(datum_req));
@@ -73,7 +73,7 @@ public class UrenOpenstellenServlet extends HttpServlet {
 		
 		//String begintijd/eindtijd to Date 'datebegintijd/dateeindtijd'.
 		SimpleDateFormat sdf_tijd = new SimpleDateFormat("HH:mm");
-		sdf_tijd.setTimeZone(TimeZone.getTimeZone("Canada/Newfoundland"));
+		sdf_tijd.setTimeZone(TimeZone.getTimeZone("GMT-3"));
 		Date begintijd = null;
 		try {
 			begintijd = sdf_tijd.parse(begintijd_req);
