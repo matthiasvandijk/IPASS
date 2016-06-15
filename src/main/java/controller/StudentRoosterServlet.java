@@ -89,7 +89,7 @@ public class StudentRoosterServlet extends HttpServlet {
 		
 		for (int y = 0; y < weekdata.size(); y++) {
 			JsonObjectBuilder job_dates = Json.createObjectBuilder();
-			job_dates.add("datum", sdf.format(weekdata.get(y).getTime()));
+			job_dates.add("datum", StringEscapeUtils.escapeXml11(sdf.format(weekdata.get(y).getTime())));
 			
 			JsonArrayBuilder jab_blok = Json.createArrayBuilder();
 			JsonObjectBuilder job_afspraken = Json.createObjectBuilder();

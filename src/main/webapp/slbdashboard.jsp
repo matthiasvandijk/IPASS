@@ -8,6 +8,20 @@
           <div class="container-fluid">
               <div class="row">
                   <div class="col-lg-12">
+                  
+                  <c:if test="${not empty requestScope.errorUrenSluiten}">
+                  	<div class="alert alert-danger alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<strong>Oops!</strong> ${requestScope.errorUrenSluiten}
+					</div>
+                  </c:if>
+                  <c:if test="${not empty requestScope.success}">
+                  	<div class="alert alert-success alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<strong>Goed bezig!</strong> ${requestScope.success}
+					</div>
+                  </c:if>
+                  
                       <h2 class="margin-title">Dashboard</h2>
 
 											<div class="row">
@@ -101,7 +115,7 @@
 													<div class="col-md-2 padding-left-right-null">
 														<div class="week-container-right">
 															<a href="uren_openstellen/" class="btn btn-main week-title-right-btn btn-default" style="margin-bottom: 8px;" role="button">Uren openstellen</a>
-															<a href="#" class="btn btn-main week-title-right-btn btn-default" role="button">Uren sluiten</a>
+															<a href="#" id="uren_sluiten_btn" class="btn btn-main week-title-right-btn btn-default" role="button">Uren sluiten</a>
 														</div>
 													</div>
 											</div>

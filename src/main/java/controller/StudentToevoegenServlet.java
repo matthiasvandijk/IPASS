@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import model.ServiceProvider;
 import model.SysteemService;
 import model.domain.Slb;
@@ -60,7 +62,7 @@ public class StudentToevoegenServlet extends HttpServlet {
 		
 		//Check, is de student al gekoppeld met de SLBer?
 		if (student.getSlber().equals(slb)) {
-			req.setAttribute("errorStudentEmail","" + student.getVolledigeNaam() + " is al aan uw account toegevoegd!");
+			req.setAttribute("errorStudentEmail","" + StringEscapeUtils.escapeXml11(student.getVolledigeNaam()) + " is al aan uw account toegevoegd!");
 			RequestDispatcher rd =req.getRequestDispatcher("/student_toevoegen.jsp");            
 			rd.forward(req, resp);
 			return;
@@ -77,7 +79,7 @@ public class StudentToevoegenServlet extends HttpServlet {
 		} 
 		
 		//Alle checks voltooid:
-		req.setAttribute("studentToegevoegd","" + student.getVolledigeNaam() + " is succesvol aan uw account toegevoegd!");
+		req.setAttribute("studentToegevoegd","" + StringEscapeUtils.escapeXml11(student.getVolledigeNaam()) + " is succesvol aan uw account toegevoegd!");
 		RequestDispatcher rd =req.getRequestDispatcher("/student_toevoegen.jsp");            
 		rd.forward(req, resp);
 		return;

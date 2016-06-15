@@ -54,6 +54,10 @@ public class SysteemService {
 		return String.format("%02d:%02d", u, m);
 	}
 	
+	public boolean afspraakVerwijderen(int afspraakId) {
+		return afspraakDAO.afspraakVerwijderen(afspraakId);
+	}
+	
 	public List<Afspraak> getAfsprakenByWeekSlb(Slb slb, Calendar datum) throws ParseException {
 		return afspraakDAO.getAfsprakenByWeekAndSlb(datum.get(Calendar.WEEK_OF_YEAR), datum.get(Calendar.YEAR), slb);
 	}

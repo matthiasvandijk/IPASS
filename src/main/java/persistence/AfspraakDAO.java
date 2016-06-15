@@ -89,6 +89,23 @@ public class AfspraakDAO extends BaseDAO {
 		return afspraak.get(0);
 	}
 	
+	public boolean afspraakVerwijderen(int afspraakId) {
+		boolean result = false;
+		String query = "DELETE FROM afspraak WHERE idAfspraak=?;";
+		
+		try (Connection con = super.getConnection()) {
+			java.sql.PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, afspraakId);
+
+			if (ps.executeUpdate() == 1) { // 1 row updated!
+				result = true;
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		return result;
+	}
+	
 	public boolean afspraakInplannen(int afspraakId, String onderwerp, int studentId) {
 		boolean result = false;
 		String query = "UPDATE afspraak SET onderwerp=?, idStudent=? WHERE idAfspraak=?;";

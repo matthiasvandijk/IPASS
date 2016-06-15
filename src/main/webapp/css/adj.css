@@ -217,6 +217,52 @@ fieldset[disabled] .btn-main.active {
 }
 
 /* Begin Rooster */
+.btn-bg-danger {
+  background-color: #ff7171;
+  border-color: #ff6767;
+  color: #ffffff;
+}
+.btn-bg-danger:hover,
+.btn-bg-danger:focus,
+.btn-bg-danger:active,
+.btn-bg-danger.active,
+.btn-bg-danger:focus,
+.open .dropdown-toggle.btn-bg-danger {
+ color: #ffffff;
+ background-color: #d65c5c;
+ border-color: #d85151;
+}
+
+.btn-bg-danger:active,
+.btn-bg-danger.active,
+.open .dropdown-toggle.btn-bg-danger {
+ background-image: none;
+}
+
+.btn-bg-danger.disabled,
+.btn-bg-danger[disabled],
+fieldset[disabled] .btn-bg-danger,
+.btn-bg-danger.disabled:hover,
+.btn-bg-danger[disabled]:hover,
+fieldset[disabled] .btn-bg-danger:hover,
+.btn-bg-danger.disabled:focus,
+.btn-bg-danger[disabled]:focus,
+fieldset[disabled] .btn-bg-danger:focus,
+.btn-bg-danger.disabled:active,
+.btn-bg-danger[disabled]:active,
+fieldset[disabled] .btn-bg-danger:active,
+.btn-bg-danger.disabled.active,
+.btn-bg-danger[disabled].active,
+fieldset[disabled] .btn-bg-danger.active {
+ background-color: #226AA7;
+ border-color: #154B79;
+}
+
+.btn-bg-danger .badge {
+ color: #226AA7;
+ background-color: #ffffff;
+}
+
 .dag {
        font-size: 19px;
        font-weight: 500;

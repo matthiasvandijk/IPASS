@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		$("#VRcontent").html("");
 		$("#ZAcontent").html("");
 	}
-	function addBlockOpen(content, id, begintijd, eindtijd, locatie) {
+	function addBlockOpen(content, id, begintijd, eindtijd, locatie, checked) {
 		$(content).append("<div class=\"informatieblok\"><div class=\"i-tijd\">" +
 				"<div class=\"checkbox informatieblok-checkbox checkbox-primary\">" +
-				"<input type=\"checkbox\" id=\"" + id + "\">" +
+				"<input onclick=\"checkBoxToggle(this)\" type=\"checkbox\" id=\"" + id + "\" "+checked+">" +
 				"<label for=\"" + id + "\">" + begintijd +" - "+ eindtijd + "</label></div></div>" +
 				"<div class=\"i-locatie\">(" + locatie + ")</div>" +
 				"<div class=\"i-student\">OPEN</div></div>");
@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				"<div class=\"i-locatie hover-dec\">" + locatie + "</div>" +
 				"<div class=\"i-student hover-dec\">" + studentnaam + "</div></div></a>");
 	}
+	
 	
 	$.getJSON("SlbRoosterServlet.do?type=init", function(data){
 		emptyContent();
@@ -93,7 +94,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 						list_blok.push(String(blokken.locatie));
 						
 						if (blokken.studentnaam == null) {
-							addBlockOpen(list_blok[0],list_blok[1],list_blok[2],list_blok[3],list_blok[4]);
+							if (checked.indexOf(String(list_blok[1])) != -1){
+								list_blok.push("checked");
+							}
+							addBlockOpen(list_blok[0],list_blok[1],list_blok[2],list_blok[3],list_blok[4], list_blok[5]);
 						} else {
 							list_blok.push(String(blokken.studentnaam));
 							addBlockAfspraak(list_blok[0],list_blok[1],list_blok[2],list_blok[3],list_blok[4],list_blok[5]);
@@ -120,3 +124,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		}
 	});
 });
+var checked = [];
+function checkBoxToggle(obj) {
+	if (checked.indexOf(obj.id) == -1) {
+		checked.push(obj.id);
+	} else {
+		checked.splice(checked.indexOf(obj.id),1)
+	}
+	var url = "SlbUrenSluitenServlet.do?uren=";
+	jQuery.each(checked, function(index, item) {
+	    url += String(item) + ";";
+	});
+	$("#uren_sluiten_btn").attr("href", url);
+	if (checked.length > 0) {
+		$("#uren_sluiten_btn").attr("class", "btn btn-bg-danger week-title-right-btn");
+	} else {
+		$("#uren_sluiten_btn").attr("class", "btn btn-main week-title-right-btn");
+	}
+}
