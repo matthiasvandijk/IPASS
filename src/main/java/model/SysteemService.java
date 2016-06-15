@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import model.domain.Afspraak;
@@ -75,10 +76,11 @@ public class SysteemService {
 			if (checkbox_split != null) {
 				//do split...
 				int aantal_keer = (int) Math.floor(minutes / split);
-				int begintijd_min = (int)  Math.floor(TimeUnit.MILLISECONDS.toMinutes(begintijd.getTime()) + 60); //Bug? getTime is always missing 60 min.
+				int begintijd_min = (int)  Math.floor(TimeUnit.MILLISECONDS.toMinutes(begintijd.getTime()) + 60); //Timezone...
 				int eindtijd_min = begintijd_min;
 				
 				SimpleDateFormat sdf_tijd = new SimpleDateFormat("HH:mm");
+				sdf_tijd.setTimeZone(TimeZone.getTimeZone("Europe/Amsterdam"));
 				
 				for (int i = 0; i < aantal_keer; i++) {
 					Date begintijd_calc = null;

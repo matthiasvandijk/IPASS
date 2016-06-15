@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -71,6 +73,7 @@ public class UrenOpenstellenServlet extends HttpServlet {
 		
 		//String begintijd/eindtijd to Date 'datebegintijd/dateeindtijd'.
 		SimpleDateFormat sdf_tijd = new SimpleDateFormat("HH:mm");
+		sdf_tijd.setTimeZone(TimeZone.getTimeZone("Europe/Amsterdam"));
 		Date begintijd = null;
 		try {
 			begintijd = sdf_tijd.parse(begintijd_req);
