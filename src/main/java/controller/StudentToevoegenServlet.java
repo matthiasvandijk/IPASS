@@ -60,12 +60,15 @@ public class StudentToevoegenServlet extends HttpServlet {
 		
 		Slb slb = (Slb) req.getSession().getAttribute("user");
 		
+		
 		//Check, is de student al gekoppeld met de SLBer?
-		if (student.getSlber().equals(slb)) {
-			req.setAttribute("errorStudentEmail","" + StringEscapeUtils.escapeXml11(student.getVolledigeNaam()) + " is al aan uw account toegevoegd!");
-			RequestDispatcher rd =req.getRequestDispatcher("/student_toevoegen.jsp");            
-			rd.forward(req, resp);
-			return;
+		if (student.getSlber() != null) {
+			if (student.getSlber().equals(slb)) {
+				req.setAttribute("errorStudentEmail","" + StringEscapeUtils.escapeXml11(student.getVolledigeNaam()) + " is al aan uw account toegevoegd!");
+				RequestDispatcher rd =req.getRequestDispatcher("/student_toevoegen.jsp");            
+				rd.forward(req, resp);
+				return;
+			}
 		}
 		
 		boolean result = sp.setStudentSlb(slb.getSlb_id(), student.getId_student());

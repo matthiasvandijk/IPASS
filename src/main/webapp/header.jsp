@@ -76,6 +76,7 @@
 				<c:if test="${user.getClass().name == \"model.domain.Slb\"}">
 					<li><a href="${pageContext.request.contextPath}/slb/">Dashboard</a></li>
 					<li><a href="${pageContext.request.contextPath}/slb/student_toevoegen/">Student toevoegen</a></li>
+					<li><a href="${pageContext.request.contextPath}/slb/student_verwijderen/">Student verwijderen</a></li>
 				</c:if>
 				<c:if test="${user.getClass().name == \"model.domain.Student\"}">
 				    <li><a href="${pageContext.request.contextPath}/student/">Dashboard</a></li>

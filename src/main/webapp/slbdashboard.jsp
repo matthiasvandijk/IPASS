@@ -44,31 +44,9 @@
 
 															<div class="dag" id="MAdate"></div>
 															<div id="MAcontent">
-																<div class="informatieblok">
-																	<div class="i-tijd"><span class="label background-blue-main">13:00 - 14:00</span></div>
-																	<div class="i-locatie">NN1-D01.10</div>
-																	<div class="i-student">Matthias van dijk</div>
-																</div>
-
-																<div class="informatieblok">
-																	<div class="i-tijd">
-
-																		<div class="checkbox informatieblok-checkbox checkbox-primary">
-																			<input type="checkbox" id="checkbox1">
-																			<label for="checkbox1">
-																				13:00 - 14:00
-																			</label>
-																		</div>
-
-																	</div>
-																	<div class="i-locatie">OPEN</div>
-																	<div class="i-student"></div>
-																</div>
+					
 															</div>
 														</div>
-
-
-
 
 														<div class="col-md-2" id="DI">
 
@@ -104,7 +82,7 @@
 
 														<div class="col-md-2" id="ZA">
 
-															<div class="dag" id="ZAdate">ZA 11-06-2016</div>
+															<div class="dag" id="ZAdate"></div>
 															<div id="ZAcontent">
 
 															</div>

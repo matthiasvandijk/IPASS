@@ -86,7 +86,11 @@ public class StudentDAO  extends BaseDAO {
 		
 		try (Connection con = super.getConnection()) {
 			java.sql.PreparedStatement ps = con.prepareStatement(query);
-			ps.setInt(1, idSlb);
+			if (idSlb != 0) {
+				ps.setInt(1, idSlb);
+			} else {
+				ps.setString(1, null);
+			}	
 			ps.setInt(2, idStudent);
 			
 			if (ps.executeUpdate() == 1) { // 1 row updated!

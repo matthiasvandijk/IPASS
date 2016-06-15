@@ -125,9 +125,9 @@ public class AfspraakDAO extends BaseDAO {
 		return result;
 	}
 	
-	public boolean openstellenMogelijkheid(Calendar datum, Date begintijd, Date eindtijd) throws ParseException {
+	public boolean openstellenMogelijkheid(Calendar datum, Date begintijd, Date eindtijd, Slb slb) throws ParseException {
 		Boolean result = false;
-		String query = "SELECT * FROM Afspraak WHERE datum= ? AND ((? = begintijd) or (? = eindtijd) "
+		String query = "SELECT * FROM Afspraak WHERE idSlb=? AND datum= ? AND ((? = begintijd) or (? = eindtijd) "
 				+ "or (begintijd >? AND begintijd < ?) or (eindtijd > ? AND eindtijd < ?));";
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -138,6 +138,7 @@ public class AfspraakDAO extends BaseDAO {
 		String eindtijd_db = sdf_tijd.format(eindtijd);
 		
 		ArrayList<Object> data = new ArrayList<>();
+		data.add(slb.getSlb_id());
 		data.add(datum_db);
 		data.add(begintijd_db);
 		data.add(eindtijd_db);

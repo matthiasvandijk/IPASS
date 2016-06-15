@@ -71,7 +71,7 @@ public class SysteemService {
 		long diff = eindtijd.getTime() - begintijd.getTime();
 		long minutes = TimeUnit.MILLISECONDS.toMinutes(diff); 
 		
-		if (afspraakDAO.openstellenMogelijkheid(datum, begintijd, eindtijd)) {
+		if (afspraakDAO.openstellenMogelijkheid(datum, begintijd, eindtijd, slb)) {
 			if (checkbox_split != null) {
 				//do split...
 				int aantal_keer = (int) Math.floor(minutes / split);

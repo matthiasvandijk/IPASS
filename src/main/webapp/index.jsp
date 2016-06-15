@@ -55,7 +55,7 @@
 				<c:if test="${not empty requestScope.error}">
 			      <div class="has-error">
 				</c:if>
-				<input type="text" class="form-control input-height"
+				<input type="email" class="form-control input-height"
 					placeholder="E-mail" name="login_email" value="<%= email %>"> <input type="password"
 					class="form-control space-input input-height"
 					placeholder="Wachtwoord" name="login_password"> 
