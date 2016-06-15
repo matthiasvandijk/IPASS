@@ -80,7 +80,7 @@ public class SysteemService {
 				int eindtijd_min = begintijd_min;
 				
 				SimpleDateFormat sdf_tijd = new SimpleDateFormat("HH:mm");
-				sdf_tijd.setTimeZone(TimeZone.getTimeZone("America/Port_of_Spain"));
+				sdf_tijd.setTimeZone(TimeZone.getTimeZone("Canada/Newfoundland"));
 				
 				for (int i = 0; i < aantal_keer; i++) {
 					Date begintijd_calc = null;
