@@ -80,7 +80,7 @@ public class SysteemService {
 				int eindtijd_min = begintijd_min;
 				
 				SimpleDateFormat sdf_tijd = new SimpleDateFormat("HH:mm");
-				sdf_tijd.setTimeZone(TimeZone.getTimeZone("Europe/Amsterdam"));
+				sdf_tijd.setTimeZone(TimeZone.getTimeZone("America/Virgin"));
 				
 				for (int i = 0; i < aantal_keer; i++) {
 					Date begintijd_calc = null;

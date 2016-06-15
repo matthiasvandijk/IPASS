@@ -73,7 +73,7 @@ public class UrenOpenstellenServlet extends HttpServlet {
 		
 		//String begintijd/eindtijd to Date 'datebegintijd/dateeindtijd'.
 		SimpleDateFormat sdf_tijd = new SimpleDateFormat("HH:mm");
-		sdf_tijd.setTimeZone(TimeZone.getTimeZone("Europe/Amsterdam"));
+		sdf_tijd.setTimeZone(TimeZone.getTimeZone("America/Virgin"));
 		Date begintijd = null;
 		try {
 			begintijd = sdf_tijd.parse(begintijd_req);
