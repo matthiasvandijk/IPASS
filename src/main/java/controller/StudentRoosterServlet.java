@@ -84,7 +84,7 @@ public class StudentRoosterServlet extends HttpServlet {
 		
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd LLL");
+		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd MMM");
 		SimpleDateFormat sdf_tijd = new SimpleDateFormat("HH:mm");	
 		
 		for (int y = 0; y < weekdata.size(); y++) {

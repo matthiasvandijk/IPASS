@@ -56,7 +56,7 @@ public class SlbUrenSluitenServlet extends HttpServlet {
 		
 		
 		ArrayList<String> afspraak_informatie_list = new ArrayList<>();
-		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd LLL");
+		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd MMM");
 		SimpleDateFormat sdf_tijd = new SimpleDateFormat("HH:mm");	
 		
 		//Checks voor alle afspraak Ids:
