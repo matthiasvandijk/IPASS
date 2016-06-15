@@ -52,7 +52,7 @@ public class SlbDAO  extends BaseDAO {
 		ArrayList<Object> slbers = new ArrayList<>();
 		slbers.add(idSlb);
 		
-		List<Slb> slb = selectSlbers("SELECT idSlb, email, wachtwoord, voornaam, achternaam FROM slb WHERE idSlb = ?", slbers);
+		List<Slb> slb = selectSlbers("SELECT idSlb, email, wachtwoord, voornaam, achternaam FROM Slb WHERE idSlb = ?", slbers);
 		if (slb == null) {
 			return null;
 		}
@@ -63,7 +63,7 @@ public class SlbDAO  extends BaseDAO {
 	public Slb findByEmail(String email) {
 		ArrayList<Object> slbers = new ArrayList<>();
 		slbers.add(email);
-		List<Slb> slb = selectSlbers("SELECT idSlb, email, wachtwoord, voornaam, achternaam FROM slb WHERE email = ?", slbers);
+		List<Slb> slb = selectSlbers("SELECT idSlb, email, wachtwoord, voornaam, achternaam FROM Slb WHERE email = ?", slbers);
 		if (slb == null) {
 			return null;
 		}

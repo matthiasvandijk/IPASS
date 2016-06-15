@@ -82,7 +82,7 @@ public class AfspraakDAO extends BaseDAO {
 		ArrayList<Object> afspraken = new ArrayList<>();
 		afspraken.add(afspraakId);
 		
-		List<Afspraak> afspraak = selectAfspraken("SELECT * FROM afspraak WHERE idAfspraak = ?", afspraken);
+		List<Afspraak> afspraak = selectAfspraken("SELECT * FROM Afspraak WHERE idAfspraak = ?", afspraken);
 		if (afspraak == null) {
 			return null;
 		}
@@ -91,7 +91,7 @@ public class AfspraakDAO extends BaseDAO {
 	
 	public boolean afspraakVerwijderen(int afspraakId) {
 		boolean result = false;
-		String query = "DELETE FROM afspraak WHERE idAfspraak=?;";
+		String query = "DELETE FROM Afspraak WHERE idAfspraak=?;";
 		
 		try (Connection con = super.getConnection()) {
 			java.sql.PreparedStatement ps = con.prepareStatement(query);
@@ -108,7 +108,7 @@ public class AfspraakDAO extends BaseDAO {
 	
 	public boolean afspraakInplannen(int afspraakId, String onderwerp, int studentId) {
 		boolean result = false;
-		String query = "UPDATE afspraak SET onderwerp=?, idStudent=? WHERE idAfspraak=?;";
+		String query = "UPDATE Afspraak SET onderwerp=?, idStudent=? WHERE idAfspraak=?;";
 		
 		try (Connection con = super.getConnection()) {
 			java.sql.PreparedStatement ps = con.prepareStatement(query);
@@ -127,7 +127,7 @@ public class AfspraakDAO extends BaseDAO {
 	
 	public boolean openstellenMogelijkheid(Calendar datum, Date begintijd, Date eindtijd) throws ParseException {
 		Boolean result = false;
-		String query = "SELECT * FROM afspraak WHERE datum= ? AND ((? = begintijd) or (? = eindtijd) "
+		String query = "SELECT * FROM Afspraak WHERE datum= ? AND ((? = begintijd) or (? = eindtijd) "
 				+ "or (begintijd >? AND begintijd < ?) or (eindtijd > ? AND eindtijd < ?));";
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -162,7 +162,7 @@ public class AfspraakDAO extends BaseDAO {
 		datum.setWeekDate(jaar, week, Calendar.SATURDAY);
 		String zaterdag = sdf.format(datum.getTime());
 		
-		String query = "SELECT * FROM afspraak WHERE datum BETWEEN CAST(? AS DATE) "
+		String query = "SELECT * FROM Afspraak WHERE datum BETWEEN CAST(? AS DATE) "
 				+ "AND CAST(? AS DATE) AND idSlb=? order by datum, begintijd asc;";
 		
 		ArrayList<Object> data = new ArrayList<>();
@@ -175,7 +175,7 @@ public class AfspraakDAO extends BaseDAO {
 	
 	public boolean insert(Calendar datum, Date begintijd, Date eindtijd, String locatie ,Slb slb) {
 		Boolean result = false;
-		String query = "INSERT INTO afspraak (`idSlb`, `datum`, `begintijd`, `eindtijd`, `locatie`, `onderwerp`, `idStudent`)"
+		String query = "INSERT INTO Afspraak (`idSlb`, `datum`, `begintijd`, `eindtijd`, `locatie`, `onderwerp`, `idStudent`)"
 				+ " VALUES (?, ?, ?, ?, ?, NULL, NULL);";
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

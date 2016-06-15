@@ -55,14 +55,14 @@ public class StudentDAO  extends BaseDAO {
 	public List<Student> findAllBySlb(int idSlb) {
 		ArrayList<Object> slbers = new ArrayList<>();
 		slbers.add(idSlb);
-		return selectStudenten("SELECT idStudent, email, wachtwoord, voornaam, achternaam, idSlb FROM student WHERE idSlb = ?", slbers);
+		return selectStudenten("SELECT idStudent, email, wachtwoord, voornaam, achternaam, idSlb FROM Student WHERE idSlb = ?", slbers);
 	}
 	
 	public Student findById(int idStudent) {
 		ArrayList<Object> studenten = new ArrayList<>();
 		studenten.add(idStudent);
 		
-		List<Student> student = selectStudenten("SELECT idStudent, email, wachtwoord, voornaam, achternaam, idSlb FROM student WHERE idStudent = ?", studenten);
+		List<Student> student = selectStudenten("SELECT idStudent, email, wachtwoord, voornaam, achternaam, idSlb FROM Student WHERE idStudent = ?", studenten);
 		if (student == null) {
 			return null;
 		}
@@ -73,7 +73,7 @@ public class StudentDAO  extends BaseDAO {
 		ArrayList<Object> studenten = new ArrayList<>();
 		studenten.add(email);
 		
-		List<Student> student = selectStudenten("SELECT idStudent, email, wachtwoord, voornaam, achternaam, idSlb FROM student WHERE email = ?", studenten);
+		List<Student> student = selectStudenten("SELECT idStudent, email, wachtwoord, voornaam, achternaam, idSlb FROM Student WHERE email = ?", studenten);
 		if (student == null) {
 			return null;
 		}
@@ -82,7 +82,7 @@ public class StudentDAO  extends BaseDAO {
 	
 	public Boolean veranderSlb(int idSlb, int idStudent) {
 		Boolean result = false;
-		String query = "UPDATE student SET idSlb=? WHERE idStudent=?";
+		String query = "UPDATE Student SET idSlb=? WHERE idStudent=?";
 		
 		try (Connection con = super.getConnection()) {
 			java.sql.PreparedStatement ps = con.prepareStatement(query);
